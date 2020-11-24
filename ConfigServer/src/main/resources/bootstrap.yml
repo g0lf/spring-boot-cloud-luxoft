@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: ConfigServer
+
+server:
+  port: 8600
+
+spring.cloud.config.server.git.uri: file:/Users/a18558216/Downloads/LABS/config-repo-initialized

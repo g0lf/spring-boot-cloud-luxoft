@@ -1,0 +1,12 @@
+###
+
+POST http://localhost:8600/monitor
+Content-Type: application/json
+X-Event-Key: repo:push
+X-Hook-UUID: webhook-uuid
+
+{"push": {"changes": []} }
+
+###
+
+POST http://localhost:8600/actuator/bus-refresh
