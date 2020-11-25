@@ -76,6 +76,8 @@
         <module>ProcessingService</module>
         <module>Zuul</module>
         <module>ConfigServer</module>
+        <module>Dashboard</module>
+        <module>TurbineServer</module>
     </modules>
 
 </project>
