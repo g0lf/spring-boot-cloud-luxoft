@@ -79,6 +79,8 @@
         <module>Dashboard</module>
         <module>TurbineServer</module>
         <module>AuthService</module>
+        <module>HistoryService</module>
+        <module>Common</module>
     </modules>
 
 </project>

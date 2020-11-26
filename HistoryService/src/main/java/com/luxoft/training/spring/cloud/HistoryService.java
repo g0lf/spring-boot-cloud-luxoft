@@ -3,6 +3,7 @@ package com.luxoft.training.spring.cloud;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.bus.jackson.RemoteApplicationEventScan;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.ApplicationListener;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,10 +15,24 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 @SpringBootApplication
+@EnableEurekaClient
 @RemoteApplicationEventScan
 @RestController
-public class HistoryService {
+public class HistoryService implements ApplicationListener<AbstractFinancialEvent> {
+    private Map<Date, BigDecimal> historyMap = Collections.synchronizedMap(new LinkedHashMap<Date, BigDecimal>());
+
+    @GetMapping
+    public Map<Date, BigDecimal> getHistory() {
+        return historyMap;
+    }
+
+    @Override
+    public void onApplicationEvent(AbstractFinancialEvent event) {
+        historyMap.put(new Date(event.getTimestamp()), event.getSum());
+    }
+
     public static void main(String[] args) {
         SpringApplication.run(HistoryService.class, args);
     }
 }
+
