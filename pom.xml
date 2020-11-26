@@ -78,6 +78,7 @@
         <module>ConfigServer</module>
         <module>Dashboard</module>
         <module>TurbineServer</module>
+        <module>AuthService</module>
     </modules>
 
 </project>

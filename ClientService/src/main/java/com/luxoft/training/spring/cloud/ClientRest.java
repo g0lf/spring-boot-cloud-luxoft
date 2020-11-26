@@ -3,6 +3,7 @@ package com.luxoft.training.spring.cloud;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,11 +21,13 @@ public class ClientRest {
     private ClientRepository repo;
 
     @RequestMapping("/create")
+    @PreAuthorize("hasAuthority('CLIENT_WRITE')")
     public Client create(@RequestParam String name) {
         return dao.create(name);
     }
 
     @RequestMapping("/update/{id}")
+    @PreAuthorize("hasAuthority('CLIENT_WRITE')")
     public ResponseEntity update(@PathVariable Integer id, @RequestParam String name) {
         if (dao.update(id, name)) {
             return new ResponseEntity(HttpStatus.OK);
@@ -39,11 +42,13 @@ public class ClientRest {
     }
 
     @RequestMapping("/get")
+    @PreAuthorize("hasAuthority('CLIENT_READ')")
     public List<? extends Client> get() {
         return repo.findAll();
     }
 
     @RequestMapping("/get/{id}")
+    @PreAuthorize("hasAuthority('CLIENT_READ')")
     public Client get(@PathVariable Integer id) {
         return repo.findById(id).orElse(null);
     }
