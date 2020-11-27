@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
-@EnableBinding(TestChannel.class)
+@EnableBinding(PublisherChannel.class)
 @RestController
 public class Publisher {
     @Autowired
-    @Qualifier(TestChannel.CHANNEL_NAME)
+    @Qualifier(PublisherChannel.WORDS)
     public MessageChannel output;
 
     @GetMapping("/publish")

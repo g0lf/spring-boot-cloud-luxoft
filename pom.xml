@@ -83,6 +83,7 @@
         <module>Common</module>
         <module>Publisher</module>
         <module>Subscriber</module>
+        <module>Processor</module>
     </modules>
 
 </project>
