@@ -11,5 +11,21 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+@SpringBootApplication
+@EnableBinding(TestChannel.class)
+@RestController
 public class Publisher {
+    @Autowired
+    @Qualifier(TestChannel.CHANNEL_NAME)
+    public MessageChannel output;
+
+    @GetMapping("/publish")
+    private void publish(@RequestParam String word) {
+        output.send(MessageBuilder.withPayload(word).build());
+    }
+
+    public static void main(String[] args) {
+        SpringApplication.run(Publisher.class, args);
+    }
 }
+

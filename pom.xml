@@ -81,6 +81,8 @@
         <module>AuthService</module>
         <module>HistoryService</module>
         <module>Common</module>
+        <module>Publisher</module>
+        <module>Subscriber</module>
     </modules>
 
 </project>

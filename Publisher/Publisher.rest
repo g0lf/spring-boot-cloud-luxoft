@@ -1,14 +1,14 @@
-GET http://localhost:8001/publish?word=hello
+GET http://localhost:8811/publish?word=hello
 
 ###
-GET http://localhost:8001/publish?word=hello
+GET http://localhost:8811/publish?word=hello
 
 ###
-GET http://localhost:8001/publish?word=bye
+GET http://localhost:8811/publish?word=bye
 
 ###
-GET http://localhost:8001/publish?word=6
+GET http://localhost:8811/publish?word=6
 
 ###
-GET http://localhost:8002/
+GET http://localhost:8810/
 
