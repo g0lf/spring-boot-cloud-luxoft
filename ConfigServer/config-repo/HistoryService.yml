@@ -1,0 +1,11 @@
+#spring.datasource:
+#  url: jdbc:h2:file:~/AccountService;DB_CLOSE_ON_EXIT=FALSE
+
+server:
+  port: 8807
+
+management:
+  port: 9807
+  security:
+    enabled: false
+
